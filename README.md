@@ -1,12 +1,16 @@
 # Gimnasio
 
 # Diseño Original
-<img src=“img/DiseñoGimnasio.png”>
+
+<img src="img/DiseñoGimnasio.png">
 
 ## Diseño Android Studio y ejecución
-<img src=“img/Pantalla1.PNG”>
-<img src=“img/Pantalla2.PNG”>
-<img src=“img/Pantalla3.PNG”>
+
+<img src="img/Pantalla1.PNG">
+
+<img src="img/Pantalla2.PNG">
+
+<img src="img/Pantalla3.PNG">
 
 ## XML
 Actividad 1
