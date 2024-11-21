@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">GYM   NASIO</string>
+    <string name="password">Password</string>
+    <string name="maquina1">Machine 1</string>
+    <string name="maquina2">Machine 2</string>
+    <string name="maquina3">Machine 3</string>
+    <string name="activar_QR">Active QR</string>
+    <string name="comunicar_incidencia">report incident</string>
+    <string name="ranking">Weekly Ranking</string>
+    <string name="histórico">History</string>
+    <string name="logIn">Log In</string>
+    <string name="logout">Log Out</string>
+</resources>

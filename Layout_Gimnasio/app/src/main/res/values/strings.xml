@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">GYM   NASIO</string>
+    <string name="email" translatable="false">Email:</string>
+    <string name="password">Contraseña:</string>
+    <string name="maquina1">Máquina 1</string>
+    <string name="maquina2">Maquina 2</string>
+    <string name="maquina3">Máquina 3</string>
+    <string name="activar_QR">Activar QR</string>
+    <string name="comunicar_incidencia">Comunicar Incidencia</string>
+    <string name="ranking">Ranking Semanal</string>
+    <string name="histórico">Historico</string>
+    <string name="logIn">Entrar</string>
+    <string name="logout">Cerrar sesion</string>
+</resources>
