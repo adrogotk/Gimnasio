@@ -6,11 +6,15 @@ import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import es.etg.dam.pmdm10.data.DataAdapter
+import es.etg.dam.pmdm10.data.ItemViewModel
 import es.etg.dam.pmdm10.data.Maquina
 import es.etg.dam.pmdm10.data.User
 
@@ -39,6 +43,26 @@ class SecondActivity : AppCompatActivity() , View.OnClickListener {
         user_info.text=usuario.toString()
         val maquina: TextView=getMaquina("maquina1")
         maquina.setOnClickListener(this)
+        val data = ArrayList<ItemViewModel>()
+        for (i in 1..20) {
+            val image = android.R.drawable.arrow_up_float
+            val descripcion = "Descripción elemento $i"
+            val opcion = "Perfil"
+            data.add(ItemViewModel( image, descripcion, opcion))
+        }
+
+        val adapter = DataAdapter(data)
+        val recyclerview = findViewById<RecyclerView>(R.id.menu)
+        recyclerview.layoutManager = LinearLayoutManager(this)
+
+        recyclerview.adapter = adapter
+        adapter.setOnClickListener(object :
+            DataAdapter.OnClickListener {
+            override fun onClick(position: Int, model: ItemViewModel) {
+                val msg:String = "Ha saleccionado el elemento ${model.descripcion}"
+                Toast.makeText(this@SecondActivity, msg, Toast.LENGTH_SHORT).show()
+            }
+        })
     }
     override fun onClick (p0: View?){
         val nombre: String=getMaquina("maquina1").text.toString()
