@@ -10,25 +10,41 @@
     tools:context=".MainActivity">
 
     <EditText
+        android:id="@+id/poblacion_val"
+        android:layout_width="209dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="48dp"
+        android:layout_marginBottom="24dp"
+        android:background="@android:drawable/editbox_background"
+        android:backgroundTint="@color/material_dynamic_neutral80"
+        android:drawableTint="@color/material_dynamic_neutral10"
+        android:fadingEdge="horizontal|vertical"
+        android:foregroundTint="@color/material_dynamic_neutral10"
+        android:requiresFadingEdge="horizontal|vertical"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/password_val"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <EditText
         android:id="@+id/password_val"
         android:layout_width="209dp"
         android:layout_height="48dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="44dp"
+        android:layout_marginTop="112dp"
+        android:layout_marginEnd="48dp"
         android:background="@android:drawable/editbox_background_normal"
         android:backgroundTint="@color/material_dynamic_neutral80"
         android:fadingEdge="horizontal|vertical"
         android:inputType="textPassword"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/email" />
+        app:layout_constraintTop_toBottomOf="@+id/nombre" />
 
     <TextView
         android:id="@+id/password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="44dp"
-        android:layout_marginBottom="292dp"
+        android:layout_marginBottom="284dp"
         android:text="@string/password"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -49,12 +65,22 @@
         app:layout_constraintVertical_bias="0.228" />
 
     <TextView
-        android:id="@+id/email"
+        android:id="@+id/nombre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="44dp"
-        android:layout_marginBottom="384dp"
-        android:text="@string/email"
+        android:layout_marginBottom="428dp"
+        android:text="@string/nombre"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/poblacion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:layout_marginBottom="356dp"
+        android:text="@string/poblacion"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -79,11 +105,11 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <EditText
-        android:id="@+id/email_val"
+        android:id="@+id/nombre_val"
         android:layout_width="209dp"
         android:layout_height="48dp"
-        android:layout_marginEnd="44dp"
-        android:layout_marginBottom="48dp"
+        android:layout_marginEnd="48dp"
+        android:layout_marginBottom="100dp"
         android:background="@android:drawable/editbox_background"
         android:backgroundTint="@color/material_dynamic_neutral80"
         android:drawableTint="@color/material_dynamic_neutral10"

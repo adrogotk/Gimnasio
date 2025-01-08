@@ -29,22 +29,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/dashboard" />
 
-    <ImageView
+    <androidx.fragment.app.FragmentContainerView
         android:id="@+id/avatar"
         android:layout_width="136dp"
         android:layout_height="126dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.recyclerview.widget.RecyclerView
+    <androidx.fragment.app.FragmentContainerView
         android:id="@+id/menu"
         android:layout_width="136dp"
         android:layout_height="373dp"
-        android:background="@android:drawable/edit_text"
-        android:backgroundTint="@color/material_dynamic_neutral80"
-        android:clipChildren="false"
-        android:clipToPadding="false"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/avatar" />
 

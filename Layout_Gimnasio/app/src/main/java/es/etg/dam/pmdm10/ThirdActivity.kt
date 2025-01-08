@@ -10,13 +10,20 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.fragment.app.add
+import androidx.fragment.app.commit
+import es.etg.dam.pmdm10.data.AvatarFragment
 import es.etg.dam.pmdm10.data.Maquina
+import es.etg.dam.pmdm10.data.MenuFragment
 import es.etg.dam.pmdm10.data.User
+import es.etg.dam.pmdm10.databinding.ActivitySecondBinding
+import es.etg.dam.pmdm10.databinding.ActivityThirdBinding
 
 class ThirdActivity : AppCompatActivity(), View.OnClickListener {
     companion object{
         const val EXTRA_PERSONA ="SegundaActivity:Persona"
     }
+    private lateinit var binding: ActivityThirdBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -25,6 +32,13 @@ class ThirdActivity : AppCompatActivity(), View.OnClickListener {
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
+        }
+        if (savedInstanceState == null) {
+            supportFragmentManager.commit {
+                setReorderingAllowed(true)
+                add<AvatarFragment>(binding.avatar.id)
+                add<MenuFragment>(binding.menu.id)
+            }
         }
         val boton: Button = findViewById(R.id.btn_log_out)
         boton.setOnClickListener(this)

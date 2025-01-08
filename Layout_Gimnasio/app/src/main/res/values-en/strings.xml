@@ -11,4 +11,7 @@
     <string name="histórico">History</string>
     <string name="logIn">Log In</string>
     <string name="logout">Log Out</string>
+    <string name="nombre">name</string>
+    <string name="apellidos">surname</string>
+    <string name="poblacion">city</string>
 </resources>

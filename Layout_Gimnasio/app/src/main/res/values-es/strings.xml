@@ -11,4 +11,7 @@
     <string name="histórico">Historico</string>
     <string name="logIn">Entrar</string>
     <string name="logout">Cerrar sesion</string>
+    <string name="nombre">nombre</string>
+    <string name="apellidos">apellidos</string>
+    <string name="poblacion">poblacion</string>
 </resources>
