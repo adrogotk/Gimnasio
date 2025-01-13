@@ -17,13 +17,14 @@ import androidx.fragment.app.commit
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import es.etg.dam.pmdm10.MainActivity.Companion.database
-import es.etg.dam.pmdm10.data.AvatarFragment
 import es.etg.dam.pmdm10.data.DataAdapter
 import es.etg.dam.pmdm10.data.FragmentActionsListener
 import es.etg.dam.pmdm10.data.ItemViewModel
+import es.etg.dam.pmdm10.data.LogoFragment
 import es.etg.dam.pmdm10.data.Maquina
 import es.etg.dam.pmdm10.data.MenuFragment
 import es.etg.dam.pmdm10.data.PoblacionEntity
+import es.etg.dam.pmdm10.data.TitleFragment
 import es.etg.dam.pmdm10.data.User
 import es.etg.dam.pmdm10.databinding.ActivityMainBinding
 import es.etg.dam.pmdm10.databinding.ActivitySecondBinding
@@ -42,18 +43,16 @@ class SecondActivity : AppCompatActivity() , View.OnClickListener, FragmentActio
     private lateinit var binding: ActivitySecondBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContentView(R.layout.activity_second)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
+        binding = ActivitySecondBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         if (savedInstanceState == null) {
+            val bundle = Bundle()
             supportFragmentManager.commit {
                 setReorderingAllowed(true)
-                add<AvatarFragment>(binding.avatar.id)
-                add<MenuFragment>(binding.menu.id)
+                add<LogoFragment>(binding.logoFragmento.id, args=bundle)
+                add<TitleFragment>(binding.titleFragmento.id, args=bundle)
+                add<MenuFragment>(binding.menuFragmento.id, args=bundle)
             }
         }
         val usuario = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
@@ -67,26 +66,6 @@ class SecondActivity : AppCompatActivity() , View.OnClickListener, FragmentActio
         user_info.text=usuario.toString()
         val maquina: TextView=getMaquina("maquina1")
         maquina.setOnClickListener(this)
-        val data = ArrayList<ItemViewModel>()
-        for (i in 1..20) {
-            val image = android.R.drawable.arrow_up_float
-            val descripcion = "Descripción elemento $i"
-            val opcion = "Perfil"
-            data.add(ItemViewModel( image, descripcion, opcion))
-        }
-
-        val adapter = DataAdapter(data)
-        val recyclerview = findViewById<RecyclerView>(R.id.menu)
-        recyclerview.layoutManager = LinearLayoutManager(this)
-
-        recyclerview.adapter = adapter
-        adapter.setOnClickListener(object :
-            DataAdapter.OnClickListener {
-            override fun onClick(position: Int, model: ItemViewModel) {
-                val msg:String = "Ha saleccionado el elemento ${model.descripcion}"
-                Toast.makeText(this@SecondActivity, msg, Toast.LENGTH_SHORT).show()
-            }
-        })
     }
     override fun onClick (p0: View?){
         val nombre: String=getMaquina("maquina1").text.toString()
@@ -100,7 +79,7 @@ class SecondActivity : AppCompatActivity() , View.OnClickListener, FragmentActio
         val maquina: TextView = findViewById(R.id.maquina1)
         return maquina
     }
-    fun loadData(usuarioId: Int): String {
+    fun loadData(usuarioId: Long): String {
         val datos = ArrayList<String>()
         var poblacionNombre: String=""
         CoroutineScope(Dispatchers.IO).launch {

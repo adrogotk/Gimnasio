@@ -30,7 +30,7 @@ class DataAdapter (private val mList: List<ItemViewModel>) : RecyclerView.Adapte
         // Cargamos la imagen y descripción de una posición
         holder.imageView.setImageResource(itemViewModel.image)
         holder.textView.text = itemViewModel.descripcion
-        holder.textView.text=itemViewModel.opcion
+        holder.opcion.text=itemViewModel.opcion
         holder.itemView.setOnClickListener {
             onClickListener?.onClick(position, itemViewModel)
         }

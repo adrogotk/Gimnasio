@@ -7,7 +7,7 @@ data class PoblacionCliente(
     @Embedded val poblacion: PoblacionEntity,
     @Relation(
         parentColumn = "id", //Entidad cliente
-        entityColumn = "cliente" // Entidad secundaria: telefono
+        entityColumn = "poblacion" // Entidad secundaria: telefono
 
     )
     val cliente: List<ClienteEntity>

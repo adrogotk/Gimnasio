@@ -9,9 +9,12 @@ import androidx.room.Transaction
 @Dao
 interface PoblacionDao {
 
-    @Query("SELECT * FROM cliente WHERE id=:id")
-    suspend fun getPoblacion(id: Int): List<PoblacionCliente>
+    @Query("SELECT * FROM poblacion WHERE id=:id")
+    suspend fun getPoblacion(id: Long): List<PoblacionCliente>
+
+    @Query("SELECT * FROM poblacion WHERE nombre=:nombre")
+    suspend fun getPoblacionNombre(nombre: String): List<PoblacionEntity>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insert(poblacion: PoblacionEntity):Int
+    suspend fun insert(poblacion: PoblacionEntity):Long
 }

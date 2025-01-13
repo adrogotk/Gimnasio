@@ -12,9 +12,10 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.add
 import androidx.fragment.app.commit
-import es.etg.dam.pmdm10.data.AvatarFragment
+import es.etg.dam.pmdm10.data.LogoFragment
 import es.etg.dam.pmdm10.data.Maquina
 import es.etg.dam.pmdm10.data.MenuFragment
+import es.etg.dam.pmdm10.data.TitleFragment
 import es.etg.dam.pmdm10.data.User
 import es.etg.dam.pmdm10.databinding.ActivitySecondBinding
 import es.etg.dam.pmdm10.databinding.ActivityThirdBinding
@@ -26,8 +27,8 @@ class ThirdActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding: ActivityThirdBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContentView(R.layout.activity_third)
+        binding = ActivityThirdBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -36,7 +37,8 @@ class ThirdActivity : AppCompatActivity(), View.OnClickListener {
         if (savedInstanceState == null) {
             supportFragmentManager.commit {
                 setReorderingAllowed(true)
-                add<AvatarFragment>(binding.avatar.id)
+                add<LogoFragment>(binding.avatar.id)
+                add<TitleFragment>(binding.titleFragmento.id)
                 add<MenuFragment>(binding.menu.id)
             }
         }

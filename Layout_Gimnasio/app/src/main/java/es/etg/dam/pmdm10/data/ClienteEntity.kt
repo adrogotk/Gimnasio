@@ -12,8 +12,8 @@ import kotlinx.parcelize.Parcelize
 @Entity (tableName = "cliente")
 data class ClienteEntity(
     @PrimaryKey(autoGenerate = true)
-    var id:Int = 0,
+    var id:Long = 0,
     var nombre:String = "",
-    var poblacion: Int = 0
+    var poblacion: Long = 0
 ): Parcelable {
 }

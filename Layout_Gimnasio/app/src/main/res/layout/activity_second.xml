@@ -30,31 +30,36 @@
         app:layout_constraintTop_toBottomOf="@+id/dashboard" />
 
     <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/avatar"
+        android:id="@+id/logoFragmento"
         android:layout_width="136dp"
         android:layout_height="126dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/menu"
+        android:id="@+id/menuFragmento"
         android:layout_width="136dp"
         android:layout_height="373dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/avatar" />
+        android:layout_marginBottom="152dp"
+        app:layout_constraintBottom_toTopOf="@+id/user_info"
+        app:layout_constraintEnd_toStartOf="@+id/dashboard"
+        app:layout_constraintTop_toBottomOf="@+id/logoFragmento"
+        app:layout_constraintVertical_bias="0.0" />
 
-    <TextView
-        android:id="@+id/app_name_little"
-        android:layout_width="188dp"
-        android:layout_height="85dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="16dp"
-        android:text="@string/app_name"
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/titleFragmento"
+        android:layout_width="267dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="6dp"
         android:textSize="34sp"
+        app:layout_constraintBottom_toTopOf="@+id/dashboard"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.477"
-        app:layout_constraintStart_toEndOf="@+id/avatar"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/dashboard"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
     <View
         android:id="@+id/dashboard"
@@ -64,7 +69,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.971"
-        app:layout_constraintStart_toEndOf="@+id/menu"
+        app:layout_constraintStart_toEndOf="@+id/menuFragmento"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.237" />

@@ -61,7 +61,6 @@ class MainActivity : AppCompatActivity() , View.OnClickListener {
         guardarPreferencias()*/
         val nombre: String = binding.nombreVal.text.toString()
         val poblacionText: String = binding.poblacionVal.text.toString()
-        guardar(nombre, poblacionText)
         val clienteId=guardar(nombre, poblacionText)
         val poblacionId=loadData(clienteId)
         val usuario: ClienteEntity=ClienteEntity(clienteId, nombre, poblacionId)
@@ -79,17 +78,29 @@ class MainActivity : AppCompatActivity() , View.OnClickListener {
         editor.apply()
     }
 
-    fun guardar(nombre: String, poblacion: String): Int{
+    fun guardar(nombre: String, poblacion: String): Long{
             val poblacionObjeto = PoblacionEntity(0, poblacion)
            // val cliente = ClienteEntity(0, nombre,poblacion);
-            var poblacionId: Int=0
+            var poblacionId: Long=0
             val clienteDao = database.clienteDao()
             val poblacionDao = database.poblacionDao()
-            var id: Int=0
+            var id: Long=0
             CoroutineScope(Dispatchers.IO).launch {
-                poblacionId=poblacionDao.insert(poblacionObjeto)
-                val cliente = ClienteEntity(0, nombre, poblacionId);
-                id=clienteDao.insert(cliente)
+                val poblacion=poblacionDao.getPoblacionNombre(poblacion)
+                val clienteNombre=clienteDao.getCliente(nombre)
+                if (clienteNombre.count()<1){
+                    if (poblacion.count()<1){
+                        poblacionId=poblacionDao.insert(poblacionObjeto)
+                    }
+                    else{
+                        poblacionId=poblacion.get(ZERO).id
+                    }
+                    val cliente = ClienteEntity(0, nombre, poblacionId);
+                    id=clienteDao.insert(cliente)
+                }
+                else{
+                    id=clienteNombre.get(ZERO).id
+                }
             }
         return id
 
@@ -99,14 +110,16 @@ class MainActivity : AppCompatActivity() , View.OnClickListener {
         val email = sharedPref.getString("email", "")
         return email
     }
-    fun loadData(usuarioId: Int): Int{
-        var poblacionId: Int=0
+    fun loadData(usuarioId: Long): Long{
+        var poblacionId: Long=0
         CoroutineScope(Dispatchers.IO).launch {
             val poblacionDao = database.poblacionDao()
             val poblaciones = poblacionDao.getPoblacion(usuarioId)
-            val poblacionCliente=poblaciones.get(ZERO)
-            val poblacionEntity=poblacionCliente.poblacion
-            poblacionId=poblacionEntity.id
+            if (poblaciones.count()>0) {
+                val poblacionCliente = poblaciones.get(ZERO)
+                val poblacionEntity=poblacionCliente.poblacion
+                poblacionId=poblacionEntity.id
+            }
         }
         return poblacionId
     }
