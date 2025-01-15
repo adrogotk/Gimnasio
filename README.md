@@ -14,7 +14,8 @@ Pantalla 2
 
 
 Pantalla 3
-![GimnasioBDFragmentos3](https://github.com/user-attachments/assets/7e7d5ff9-0082-4ed8-9f21-fd2a16e31aba)
+![GimnasioPermisos](https://github.com/user-attachments/assets/cc9351fa-b2df-47ac-a3ec-3c74f3e7ee5e)
+
 
 
 SharedPrefs
