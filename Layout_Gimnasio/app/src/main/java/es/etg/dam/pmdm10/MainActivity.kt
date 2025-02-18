@@ -31,6 +31,7 @@ class MainActivity : AppCompatActivity() , View.OnClickListener {
         const val EXTRA_POBLACION="SegundaActivity:Poblacion"
         lateinit var database: ClienteDatabase
         const val DATABASE_NAME = "cliente-db"
+        const val MADRID: Long=28
     }
     private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -79,7 +80,7 @@ class MainActivity : AppCompatActivity() , View.OnClickListener {
     }
 
     fun guardar(nombre: String, poblacion: String): Long{
-            val poblacionObjeto = PoblacionEntity(0, poblacion)
+            val poblacionObjeto = PoblacionEntity(0, poblacion, MADRID)
            // val cliente = ClienteEntity(0, nombre,poblacion);
             var poblacionId: Long=0
             val clienteDao = database.clienteDao()

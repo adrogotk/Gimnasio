@@ -49,6 +49,8 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.room.common)
     implementation(libs.androidx.room.ktx)
+    implementation(libs.retrofit)
+    implementation("com.squareup.retrofit2:converter-gson:2.10.0")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9")
     val fragment_version = "1.8.3"
     // Kotlin

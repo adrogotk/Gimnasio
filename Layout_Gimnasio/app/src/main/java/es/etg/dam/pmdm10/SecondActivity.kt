@@ -32,6 +32,8 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 class SecondActivity : AppCompatActivity() , View.OnClickListener, FragmentActionsListener {
 
@@ -39,6 +41,7 @@ class SecondActivity : AppCompatActivity() , View.OnClickListener, FragmentActio
         const val EXTRA_MAQUINA ="ThirdActivity:Maquina"
         const val EXTRA_PERSONA ="ThirdActivity:User"
         const val ZERO=0
+        const val BASE_URL: String = "https://www.el-tiempo.net/api/json/v2/provincias/"
     }
     private lateinit var binding: ActivitySecondBinding
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -91,7 +94,12 @@ class SecondActivity : AppCompatActivity() , View.OnClickListener, FragmentActio
         }
         return poblacionNombre
     }
-
+    private fun getRetrofit(): Retrofit {
+        return Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+    }
     override fun onClickFragmentButton() {
         TODO("Not yet implemented")
     }
