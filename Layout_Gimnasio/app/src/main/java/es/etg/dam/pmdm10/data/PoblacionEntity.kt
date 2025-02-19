@@ -8,6 +8,4 @@ data class PoblacionEntity(
     @PrimaryKey(autoGenerate = true)
     var id:Long = 0,
     var nombre:String = "",
-    var idProvincia:Long = 0,
-    var idApi: Long=0
 )

@@ -16,6 +16,9 @@ interface ClienteDao {
     @Query("SELECT id, nombre, poblacion FROM cliente WHERE nombre=:nombre")
     suspend fun getCliente(nombre: String): List<ClienteEntity>
 
+    @Query("SELECT id, nombre, poblacion FROM cliente WHERE id=:id")
+    suspend fun getClienteById(id: Long): List<ClienteEntity>
+
     @Transaction
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(cliente: ClienteEntity): Long

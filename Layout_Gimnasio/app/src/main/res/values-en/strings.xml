@@ -14,4 +14,6 @@
     <string name="nombre">name</string>
     <string name="apellidos">surname</string>
     <string name="poblacion">city</string>
+    <string name="temperatura">Temperature:</string>
+    <string name="precipitaciones">Precipitations:</string>
 </resources>

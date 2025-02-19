@@ -49,6 +49,8 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.room.common)
     implementation(libs.androidx.room.ktx)
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.8.7")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.7")
     implementation(libs.retrofit)
     implementation("com.squareup.retrofit2:converter-gson:2.10.0")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9")

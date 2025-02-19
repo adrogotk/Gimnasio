@@ -19,11 +19,14 @@ import es.etg.dam.pmdm10.data.PoblacionDao
 import es.etg.dam.pmdm10.data.PoblacionEntity
 import es.etg.dam.pmdm10.data.User
 import es.etg.dam.pmdm10.databinding.ActivityMainBinding
+import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withContext
+import okhttp3.Dispatcher
 
 class MainActivity : AppCompatActivity() , View.OnClickListener {
     companion object{
@@ -80,13 +83,15 @@ class MainActivity : AppCompatActivity() , View.OnClickListener {
     }
 
     fun guardar(nombre: String, poblacion: String): Long{
-            val poblacionObjeto = PoblacionEntity(0, poblacion, MADRID)
+            val poblacionObjeto = PoblacionEntity(0, poblacion)
            // val cliente = ClienteEntity(0, nombre,poblacion);
             var poblacionId: Long=0
             val clienteDao = database.clienteDao()
             val poblacionDao = database.poblacionDao()
             var id: Long=0
+            val resultado = CompletableDeferred<Long>()
             CoroutineScope(Dispatchers.IO).launch {
+                var id_corrutina: Long
                 val poblacion=poblacionDao.getPoblacionNombre(poblacion)
                 val clienteNombre=clienteDao.getCliente(nombre)
                 if (clienteNombre.count()<1){
@@ -97,13 +102,16 @@ class MainActivity : AppCompatActivity() , View.OnClickListener {
                         poblacionId=poblacion.get(ZERO).id
                     }
                     val cliente = ClienteEntity(0, nombre, poblacionId);
-                    id=clienteDao.insert(cliente)
+                    id_corrutina=clienteDao.insert(cliente)
+                    Log.v("id corrutina: ", id_corrutina.toString())
                 }
                 else{
-                    id=clienteNombre.get(ZERO).id
+                    id_corrutina=clienteNombre.get(ZERO).id
+                    Log.v("id corrutina: ", id_corrutina.toString())
                 }
+                resultado.complete(id_corrutina)
             }
-        return id
+        return runBlocking { resultado.await() }
 
     }
     fun leer(): String? {
