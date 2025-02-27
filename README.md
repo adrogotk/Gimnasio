@@ -1,5 +1,9 @@
 # Gimnasio
 
+
+## Contexto
+Prototipo de aplicación de un gimnasio, donde los clientes, registran su rendimiento en este.
+
 ## Diseño Original
 ![DiseñoGimnasio](https://github.com/user-attachments/assets/4a887a55-c823-46e3-b781-d1e80284327b)
 
@@ -16,7 +20,18 @@ Pantalla 2
 Pantalla 3
 ![GimnasioBDFragmentos3](https://github.com/user-attachments/assets/7e7d5ff9-0082-4ed8-9f21-fd2a16e31aba)
 
+## Versiones
+Api de Android:35
+Version Gradle:8.10.2
 
-SharedPrefs
-![SharedPref](https://github.com/user-attachments/assets/bcc67e0f-ca24-449f-998b-d3c0a8b9cd87)
+## Conclusiones
+Los puntos requeridos en la rúbrica se pueden probar de la siguiente manera:
+-ViewBiding: Se observa en las 3 actividades
+-Acceso a base de datos: Lee de la BD el valor introducido en población y Nombre en la pantalla de Login, y si no existe, los agrega a la BD
+-Fragmentos: Se han utilizado para el logo, el menú y el título de la APP
+-Permisos: En la actividad 3 (Se accede clickando sobre una máquina de la actividad 2) hay un boton de "activar QR" que requiere permiso de camara
+-Rest:En el dashboard de la actividad 2 se muestra la temperatura y precipitaciones en Parla, obtenidas de Retrofit
+-MVVM: En el footer de la actividad 2 cargamos el nombre del usuario de BD mediante el observer del ViewModel
+-Clean: Se ha aplicado a la organización de los paquetes, para que, por ejemplo al hacer las operaciones de BD, la actividad llame al viewModel, este al caso de uso, este al Repository y este al Provider (DAO)
+
 
