@@ -3,11 +3,13 @@ plugins {
     alias(libs.plugins.kotlin.android)
     id("kotlin-parcelize")
     id("com.google.devtools.ksp")
+    id("kotlin-kapt")
+    id("com.google.dagger.hilt.android")
 }
 
 android {
     namespace = "es.etg.dam.pmdm10"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "es.etg.dam.pmdm10"
@@ -69,4 +71,9 @@ dependencies {
 
     //corrutinas
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9")
+    implementation("com.google.dagger:hilt-android:2.51.1")
+    kapt("com.google.dagger:hilt-android-compiler:2.51.1")
+}
+kapt {
+    correctErrorTypes = true
 }

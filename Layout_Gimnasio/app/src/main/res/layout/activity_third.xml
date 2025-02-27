@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ThirdActivity">
+    tools:context=".ui.views.ThirdActivity">
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/titleFragmento"
@@ -47,8 +47,7 @@
         android:id="@+id/btn_active_qr"
         android:layout_width="102dp"
         android:layout_height="105dp"
-        android:layout_marginStart="3dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="112dp"
         android:text="@string/activar_QR"
         app:layout_constraintStart_toEndOf="@+id/menu"
         app:layout_constraintTop_toBottomOf="@+id/nombreMaquina" />
@@ -57,17 +56,17 @@
         android:id="@+id/btn_report_incidence"
         android:layout_width="152dp"
         android:layout_height="103dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="112dp"
         android:text="@string/comunicar_incidencia"
         app:layout_constraintStart_toEndOf="@+id/btn_active_qr"
         app:layout_constraintTop_toBottomOf="@+id/nombreMaquina" />
 
     <TextView
         android:id="@+id/ranking"
-        android:layout_width="285dp"
-        android:layout_height="190dp"
-        android:layout_marginTop="108dp"
+        android:layout_width="280dp"
+        android:layout_height="191dp"
+        android:layout_marginTop="220dp"
         android:text="@string/ranking"
         app:layout_constraintStart_toEndOf="@+id/menu"
         app:layout_constraintTop_toBottomOf="@+id/nombreMaquina" />
@@ -76,7 +75,7 @@
         android:id="@+id/historico"
         android:layout_width="282dp"
         android:layout_height="288dp"
-        android:layout_marginTop="296dp"
+        android:layout_marginTop="412dp"
         android:text="@string/histórico"
         app:layout_constraintStart_toStartOf="@+id/ranking"
         app:layout_constraintTop_toBottomOf="@+id/nombreMaquina" />

@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:foregroundTint="@color/white"
     android:theme="@style/ThemeOverlay.Material3.TextInputEditText"
-    tools:context=".MainActivity">
+    tools:context=".ui.views.MainActivity">
 
     <EditText
         android:id="@+id/poblacion_val"

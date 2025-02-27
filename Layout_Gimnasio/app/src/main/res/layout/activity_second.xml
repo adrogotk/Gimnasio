@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SecondActivity">
+    tools:context=".ui.views.SecondActivity">
 
     <TextView
         android:id="@+id/maquina3"
@@ -136,8 +136,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
+        android:layout_marginTop="26dp"
         android:text="@string/precipitaciones"
         app:layout_constraintStart_toStartOf="@+id/dashboard"
-        tools:layout_editor_absoluteY="235dp" />
+        app:layout_constraintTop_toBottomOf="@+id/lbl_temperatura" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
